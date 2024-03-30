@@ -11,7 +11,7 @@ function App() {
       <ChakraProvider>
         <Provider store={store}>
           <BrowserRouter>
-            <NavBar />
+            {/* <NavBar /> */}
             <MainRoute />
           </BrowserRouter>
         </Provider>
