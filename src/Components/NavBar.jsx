@@ -10,10 +10,10 @@ function NavBar() {
         justifyContent={"space-around"}
       >
         <Link to="/">HOME</Link>
+        <Link to="/login">LOGIN</Link>
       </Box>
     </>
   );
 }
 
 export default NavBar;
-// npm uninstall @chakra-ui/react @emotion/react @emotion/styled framer-motion
