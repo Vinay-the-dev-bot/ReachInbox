@@ -1,5 +1,6 @@
 import { Box } from "@mui/material";
 import logoM from "../assets/menubarLogo.png";
+import logoDarkMode from "../assets/logoDarkMode.png";
 import menubarHOME from "../assets/menubarHOME.png";
 import menubarEmail from "../assets/menubarEmail.png";
 import menubarEmailAcc from "../assets/menubarEmailAcc.png";
@@ -7,7 +8,9 @@ import menubarsendemail from "../assets/menubarsendemail.png";
 import menubarMENU from "../assets/menubarMENU.png";
 import menubarAllEmail from "../assets/menubarAllEmail.png";
 import menubarBarChart from "../assets/menubarBarChart.png";
+import { useSelector } from "react-redux";
 function MenuBar() {
+  const theme = useSelector((state) => state.darkMode);
   return (
     <>
       {/* <Box
@@ -32,7 +35,8 @@ function MenuBar() {
       </Box> */}
       <Box
         sx={{
-          backgroundColor: "#101113",
+          // backgroundColor: theme ? "#101113" : "
+          bgcolor: theme ? "#101113" : "#FAFAFA",
           display: "flex",
           position: "fixed",
           flexDirection: "column",
@@ -42,7 +46,12 @@ function MenuBar() {
           width: "56px",
         }}
       >
-        <img src={logoM} alt="logoM" width="26px" className="m-8 mt-6" />
+        <img
+          src={theme ? logoM : logoDarkMode}
+          alt="logoM"
+          width="26px"
+          className="m-8 mt-6"
+        />
         <Box
           sx={{
             display: "flex",
