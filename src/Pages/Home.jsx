@@ -1,14 +1,22 @@
+import { Box } from "@mui/material";
 import MailSection from "../Components/MailSection";
 import MenuBar from "../Components/MenuBar";
 import TopBar from "../Components/TopBar";
-import { Box } from "@chakra-ui/react";
 
 function HOME() {
   return (
     <>
-      <Box className="flex  ">
+      <Box sx={{ display: "flex" }}>
         <MenuBar />
-        <Box className=" flex w-full flex-col">
+        <Box
+          sx={{
+            display: "flex",
+            position: "relative",
+            left: "56px",
+            flexDirection: "column",
+            width: "95.5%",
+          }}
+        >
           <TopBar />
           <MailSection />
         </Box>
