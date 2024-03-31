@@ -5,7 +5,7 @@ function InboxMenu() {
     {
       id: 3,
       fromName: "Shaw Adley",
-      fromEmail: "shaw@getmemeetings.com",
+      fromEmail: "sanya@gmail.com",
       toName: "",
       toEmail: "mitrajit2022@gmail.com",
       cc: null,
@@ -31,7 +31,7 @@ function InboxMenu() {
       id: 4,
       status: "closed",
       fromName: "Shaw Adley",
-      fromEmail: "shaw@getmemeetings.com",
+      fromEmail: "Biata@gmail.com",
       toName: "",
       toEmail: "mitrajit2022@gmail.com",
       cc: null,
@@ -55,7 +55,7 @@ function InboxMenu() {
   return (
     <Box
       sx={{
-        width: "278px",
+        width: "258px",
         padding: "10px",
       }}
     >
@@ -73,8 +73,7 @@ function InboxMenu() {
       </Box>
       <Box
         sx={{
-          width: "275px",
-          padding: "5px",
+          width: "238px",
           height: "28px",
           bgcolor: "#23272C",
           padding: "4px 6px",
