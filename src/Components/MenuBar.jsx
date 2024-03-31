@@ -34,6 +34,7 @@ function MenuBar() {
         sx={{
           backgroundColor: "#101113",
           display: "flex",
+          position: "fixed",
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "space-between",
