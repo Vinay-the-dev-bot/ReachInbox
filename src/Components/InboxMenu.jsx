@@ -1,55 +1,50 @@
 import { Box, Input, Typography, Button } from "@mui/material";
 import MailInboxCard from "./MailInboxCard";
+import ReplayIcon from "@mui/icons-material/Replay";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import { useSelector } from "react-redux";
 function InboxMenu() {
+  const theme = useSelector((state) => state.darkMode);
   var mails = [
     {
-      id: 3,
-      fromName: "Shaw Adley",
-      fromEmail: "sanya@gmail.com",
-      toName: "",
-      toEmail: "mitrajit2022@gmail.com",
-      cc: null,
-      status: "interested",
-      bcc: null,
-      threadId: 1,
-      messageId: "<a5dcWbm1ac5e46d38746648c3e2f6d2c@getmemeetings.com>",
-      inReplyTo: "<4a5cWemdbfda475fabaf856ef5e806a7@gmail.com>",
-      references: "<4a5cWemdbfda475fabaf856ef5e806a7@gmail.com>",
-      subject:
-        "Shaw - following up on our meeting last week... | 7ZG2ZTV 6KG634E",
-      body: "<p>Hi Mitrajit,</p><p>Just wondering if you&rsquo;re still interested.</p><p>Regards,<br/>Shaw Adley</p><p>6KG634E practicecowboy</p>",
-      isRead: true,
-      folder: "INBOX",
-      uid: 594,
-      sentAt: "2023-11-23T04:08:45.000Z",
-      archivedAt: null,
-      createdAt: "2023-11-23T07:38:46.000Z",
-      updatedAt: "2023-11-23T07:38:46.000Z",
-      deletedAt: null,
+      fromEmail: "Beata@gmail.com",
+      status: "Interested",
+      subject: "I've tried a lot and .",
+      sentAt: "Mar 7",
+      col: "#57E0A6",
+      secCol: "#2D3833",
     },
     {
-      id: 4,
-      status: "closed",
-      fromName: "Shaw Adley",
-      fromEmail: "Biata@gmail.com",
-      toName: "",
-      toEmail: "mitrajit2022@gmail.com",
-      cc: null,
-      bcc: null,
-      threadId: 2,
-      messageId: "<a5dcWbm1ac5e46d38746648c3e2f6d2c@getmemeetings.com>",
-      inReplyTo: "<4a5cWemdbfda475fabaf856ef5e806a7@gmail.com>",
-      references: "<4a5cWemdbfda475fabaf856ef5e806a7@gmail.com>",
-      subject: "Test mail",
-      body: "<p>Test mail</p>",
-      isRead: true,
-      folder: "INBOX",
-      uid: 594,
-      sentAt: "2023-11-23T04:08:45.000Z",
-      archivedAt: null,
-      createdAt: "2023-11-23T07:38:46.000Z",
-      updatedAt: "2023-11-23T07:38:46.000Z",
-      deletedAt: null,
+      fromEmail: "Sanya@gmail.com",
+      status: "Closed",
+      subject: "I've tried a lot and .",
+      sentAt: "Mar 7",
+      col: "#626fe6",
+      secCol: "#323440",
+    },
+    {
+      fromEmail: "William@gmail.com",
+      subject: "Payment not going through",
+      status: "Interested",
+      sentAt: "Mar 7",
+      col: "#57E0A6",
+      secCol: "#2D3833",
+    },
+    {
+      fromEmail: "johnson@gmail.com",
+      status: "Meeting Booked",
+      subject: "Could you tell me more about it",
+      sentAt: "Mar 7",
+      col: "#9c62e6",
+      secCol: "#352f3c",
+    },
+    {
+      fromEmail: "Sanya@gmail.com",
+      status: "Meeting Completed",
+      subject: "Hi, I am Interested",
+      sentAt: "18:30",
+      col: "#E6D162",
+      secCol: "#444234",
     },
   ];
   return (
@@ -57,6 +52,8 @@ function InboxMenu() {
       sx={{
         width: "258px",
         padding: "10px",
+        bgcolor: theme ? "#000000" : "#FAFAFA",
+        color: theme ? "#FAFAFA" : "#000000",
       }}
     >
       <Box
@@ -65,10 +62,31 @@ function InboxMenu() {
           justifyContent: "space-between",
         }}
       >
-        <Typography>All Inbox(s)</Typography>
-        <Box>RETRY</Box>
+        <Typography
+          sx={{
+            fontSize: "20px",
+            fontWeight: 700,
+            lineHeight: "27.24px",
+            textAlign: "left",
+            color: "#4285F4",
+          }}
+        >
+          All Inbox(s)
+          <KeyboardArrowDownIcon />
+        </Typography>
+        <Box
+          className="flex justify-center items-center"
+          sx={{
+            width: "32px",
+            height: "32px",
+            borderRadius: "4px",
+            bgcolor: theme ? "#25262B" : "#ffffff",
+          }}
+        >
+          <ReplayIcon />
+        </Box>
       </Box>
-      <Box>
+      <Box sx={{ marginY: "15px" }}>
         <strong>25/25</strong> Inbox selected
       </Box>
       <Box
@@ -82,23 +100,35 @@ function InboxMenu() {
           border: "1px solid transparent",
         }}
       >
-        {/* <Icon>{SearchIcon}akjdnadsd</Icon> */}
-        {/*     <Button variant="contained" color="primary" startIcon={<SearchIcon />}>
-          Search
-        </Button> */}
+        Seerch
       </Box>
       <Box
         sx={{
+          marginTop: "15px",
           display: "flex",
-          borderBottom: "1px solid black",
+          paddingBottom: "15px",
+          borderBottom: "1px solid #203137",
           justifyContent: "space-between",
         }}
       >
-        <Box sx={{ display: "flex" }}>
-          <Typography>26</Typography>
+        <Box sx={{ display: "flex", alignItems: "center" }}>
+          <Typography
+            sx={{
+              width: "34px",
+              height: "26px",
+              padding: "3px 8px",
+              gap: "8px",
+              color: "#5C7CFA",
+              borderRadius: "17px  ",
+              background: "#222426",
+            }}
+          >
+            26
+          </Typography>
           <Typography>New Replies</Typography>
         </Box>
         <Typography>Newest</Typography>
+        <KeyboardArrowDownIcon />
       </Box>
 
       <Box>

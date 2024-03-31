@@ -1,21 +1,30 @@
 import { Box, Button, Typography } from "@mui/material";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import MessageMail from "./MessageMail";
 import expand from "../assets/expandButton.png";
 import replyIcon from "../assets/reply.png";
+import arrow_dropDown from "../assets/arrow_dropDown.png";
 import MailEditor from "./MailEditor";
 import { useState } from "react";
+import DeleteMail from "./DeleteMail";
+import { useSelector } from "react-redux";
 function ReadMail() {
   const [reply, setReply] = useState(false);
   const [deletemail, setDeleteMail] = useState(false);
+  const [readAll, setReadAll] = useState(false);
+
+  const theme = useSelector((state) => state.darkMode);
   const message = {
     subject: "New Product Launch",
     time: "20 june 2022 : 9:16AM",
+    to: "to : lennon.j@mail.com",
     // from : jeanne@icloud.com cc : lennon.j@mail.com
     from: "from : jeanne@icloud.com cc : lennon.j@mail.com",
     cc: "to : lennon.j@mail.com",
-    intro: "Hi soajddcfsojdnjf",
+    intro: "Hi {FIRST_NAME} ",
     message:
-      "Hi {FIRST_NAME} I would like to introduce you to SaaSgrow, a productized design service specifically tailored for saas startups. Our aim is to help you enhance the user experience and boost the visual appeal of your software products.",
+      "I would like to introduce you to SaaSgrow, a productized design service specifically tailored for saas startups. Our aim is to help you enhance the user experience and boost the visual appeal of your software products.",
   };
   // function handleKeyDown(event) {
   //   if (event.key === "r") {
@@ -54,6 +63,8 @@ function ReadMail() {
             borderRadius: "7px 7px 0px 0px",
             border: "0px solid transparent",
             borderBottom: "1px solid #101113",
+            bgcolor: theme ? "#000000" : "#FAFAFA",
+            color: theme ? "#FAFAFA" : "#000000",
           }}
         >
           <Box
@@ -63,17 +74,71 @@ function ReadMail() {
             }}
           >
             <Typography>Orlando</Typography>
-            <Typography>Orlando@gmail.com</Typography>
+            <Typography sx={{ color: theme ? "#666666" : "#000000" }}>
+              Orlando@gmail.com
+            </Typography>
           </Box>
-          <Box>Meeting Completed DRPDWN</Box>
-          <Box>Move DRPDWN</Box>
-          <Box>Three Dots</Box>
+
+          <Box
+            className="flex gap-2   items-center"
+            sx={{
+              padding: "6px 8px",
+              borderRadius: "4px",
+              bgcolor: theme ? "#1f1f1f" : "#000000",
+            }}
+          >
+            <Box
+              sx={{
+                width: "10px",
+                height: "10px",
+                margin: "3px",
+                borderRadius: "50%",
+                bgcolor: "#444234 ",
+              }}
+            ></Box>
+            <Box
+              sx={{
+                width: "16px",
+                height: "16px",
+                opacity: 0.5,
+                position: "absolute",
+                borderRadius: "50%",
+                bgcolor: "#e6d162",
+              }}
+            ></Box>
+            <Typography sx={{ width: "180px" }}>Meeting Completed</Typography>
+            <KeyboardArrowDownIcon />
+          </Box>
+          <Box
+            className="flex gap-2   items-center"
+            sx={{
+              padding: "6px 8px",
+              borderRadius: "4px",
+              bgcolor: theme ? "#1f1f1f" : "#000000",
+            }}
+          >
+            <Typography>Move</Typography>
+            <KeyboardArrowDownIcon />
+          </Box>
+          {/* <KeyboardArrowDownIcon /> */}
+          <Box
+            className="flex justify-center items-center"
+            sx={{
+              width: "36px",
+              height: "36px",
+              borderRadius: "4px",
+              bgcolor: theme ? "#1f1f1f" : "#000000",
+            }}
+          >
+            <MoreHorizIcon />
+          </Box>
+          {/* <Box>Three Dots</Box> */}
         </Box>
-        {false ? (
+        {!readAll ? (
           <>
             <Typography>TODAY</Typography>
             <MessageMail message={message} />
-            <Box className="flex gap-2">
+            <Box className="flex gap-2 " onClick={() => setReadAll(true)}>
               <img src={expand} alt="expand" />
               <Typography>View all 4 replies</Typography>
             </Box>
@@ -88,12 +153,6 @@ function ReadMail() {
             <MessageMail message={message} />
           </>
         )}
-        <p>{JSON.stringify(deletemail)}</p>
-        <p>{JSON.stringify(reply)}</p>
-        {/* <Button variant="contained">
-          <img src={reply} alt="reply" />
-          Reply
-        </Button> */}
         <Button
           style={{
             background:
@@ -106,7 +165,10 @@ function ReadMail() {
           <img src={replyIcon} alt="replyIcon" />
           Reply
         </Button>
+        {/* <Button onClick={() => setDeleteMail(true)}>DELETE</Button> */}
+
         {reply && <MailEditor setReply={setReply} />}
+        {deletemail && <DeleteMail setDeleteMail={setDeleteMail} />}
       </Box>
     </>
   );
