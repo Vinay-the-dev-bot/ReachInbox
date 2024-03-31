@@ -1,5 +1,3 @@
-import { Box, Image } from "@chakra-ui/react";
-
 import noMailIllustration from "../assets/noMailIllustration.png";
 import { Typography } from "@mui/material";
 function NoMail() {
