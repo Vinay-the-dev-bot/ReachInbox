@@ -38,13 +38,30 @@ function MailSummary() {
             <Typography>Reachinbox</Typography>
           </Box>
         </Box>
+
         <Box>
           <Box>Activities</Box>
           <Typography>Campaign Name</Typography>
           <Typography>8 Days | 9 Days in Sequence</Typography>
-          {steps.map((step, index) => (
-            <MailStatusSummary step={step} index={index} />
-          ))}
+          <Box
+            style={{ zIndex: 1 }}
+            sx={{ height: "250px", position: "relative" }}
+          >
+            <Box
+              style={{ zIndex: 0 }}
+              sx={{
+                border: "1px solid black",
+                height: "350px",
+                left: "15px",
+                top: "20px",
+                width: "1px",
+                position: "absolute",
+              }}
+            ></Box>
+            {steps.map((step, index) => (
+              <MailStatusSummary step={step} index={index} />
+            ))}
+          </Box>
         </Box>
       </Box>
     </>
