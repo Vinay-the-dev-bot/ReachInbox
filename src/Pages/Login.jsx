@@ -1,19 +1,17 @@
-import { Button, Box, Text } from "@chakra-ui/react";
+import { Box, Button, Typography } from "@mui/material";
 import googleLogo from "../assets/googlelogo.png";
 import reachInboxLogo from "../assets/reachInboxLogo.png";
-import { Image } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 
 function Login() {
   return (
     <>
-      <Box
-        h={"64px"}
-        bg={"black"}
+      {/* <Box
         border={"1px solid #25262B"}
         className="flex justify-center items-center"
+        sx={{ height: "64px", backgroundColor: "black", display: "flex" }}
       >
-        <Image h={"24px"} src={reachInboxLogo} alt={"reachInboxLogo"} />
+        <img h={"24px"} src={reachInboxLogo} alt={"reachInboxLogo"} />
       </Box>
       <Box padding={"200px"} bg={"black"}>
         <Box
@@ -26,9 +24,9 @@ function Login() {
           border={"1px solid #343A40"}
           h={"312px"}
         >
-          <Text color={"#FFFFFF"} fontSize={"20px"}>
+          <Typography color={"#FFFFFF"} fontSize={"20px"}>
             Create a new account
-          </Text>
+          </Typography>
           <Box
             w={"380px"}
             h={"48px"}
@@ -36,7 +34,7 @@ function Login() {
             borderRadius={"5px"}
             className="flex gap-2 justify-center items-center"
           >
-            <Image src={googleLogo} />
+            <img src={googleLogo} />
             Sign Up with Google
           </Box>
           <Button
@@ -49,18 +47,92 @@ function Login() {
           >
             Create an Account
           </Button>
+
+          <Button variant="contained">Create an Account</Button>
           <Box className="flex gap-1" color={"#909296"}>
-            <Text> Already have an account?</Text>
-            <Text color={"#C1C2C5"}>
+            <Typography> Already have an account?</Typography>
+            <Typography color={"#C1C2C5"}>
               <Link to="/">Sign In</Link>
-            </Text>
+            </Typography>
           </Box>
         </Box>
-        {/* background: #5C5F66; */}
       </Box>
-      <Text bg={"#121212"} color={"#5C5F66"} className="text-center" h={"32px"}>
+      <Typography
+        bg={"#121212"}
+        color={"#5C5F66"}
+        className="text-center"
+        h={"32px"}
+      >
         © 2023 Reachinbox. All rights reserved.
-      </Text>
+      </Typography> */}
+      <Box
+        sx={{
+          border: "1px solid #25262B",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "64px",
+          // backgroundColor: "black",
+        }}
+      >
+        <img src={reachInboxLogo} alt={"reachInboxLogo"} height={"24px"} />
+      </Box>
+      <Box
+        padding={"200px"}
+        // bgcolor={"black"}
+      >
+        <Box
+          sx={{
+            margin: "auto",
+            width: "460px",
+            // bgcolor: "#111214",
+            color: "#C1C2C5",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "space-around",
+            borderRadius: "17px",
+            border: "1px solid #343A40",
+            height: "312px",
+          }}
+        >
+          <Typography color={"#FFFFFF"} fontSize={"20px"}>
+            Create a new account
+          </Typography>
+          <Box
+            sx={{
+              width: "380px",
+              height: "48px",
+              border: "1px solid #707172",
+              borderRadius: "5px",
+              display: "flex",
+              gap: "2",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <img src={googleLogo} alt="Google Logo" />
+            Sign Up with Google
+          </Box>
+          <Button variant="contained">Create an Account</Button>
+          <Box sx={{ display: "flex", gap: "1", color: "#909296" }}>
+            <Typography>Already have an account?</Typography>
+            <Typography color={"#C1C2C5"}>
+              <Link to="/">Sign In</Link>
+            </Typography>
+          </Box>
+        </Box>
+      </Box>
+      <Typography
+        sx={{
+          // bgcolor: "#121212",
+          color: "#5C5F66",
+          textAlign: "center",
+          height: "32px",
+        }}
+      >
+        © 2023 Reachinbox. All rights reserved.
+      </Typography>
     </>
   );
 }
