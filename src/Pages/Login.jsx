@@ -114,7 +114,18 @@ function Login() {
             <img src={googleLogo} alt="Google Logo" />
             Sign Up with Google
           </Box>
-          <Button variant="contained">Create an Account</Button>
+          {/* <Button variant="contained">Create an Account</Button> */}
+          <Button
+            style={{
+              background:
+                "linear-gradient(91.73deg, #4B63DD -2.99%, rgba(5, 36, 191, 0.99) 95.8%)",
+              color: "white",
+            }}
+            variant="contained"
+          >
+            Create an Account
+          </Button>
+
           <Box sx={{ display: "flex", gap: "1", color: "#909296" }}>
             <Typography>Already have an account?</Typography>
             <Typography color={"#C1C2C5"}>
