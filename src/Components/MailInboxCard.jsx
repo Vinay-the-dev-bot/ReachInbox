@@ -56,8 +56,6 @@ function MailInboxCard({ mail }) {
             sx={{
               display: "flex",
               alignItems: "center",
-              display: "flex",
-              alignItems: "center",
               paddingX: "10px",
               height: "20px",
               padding: "3px 8px",

@@ -5,7 +5,8 @@ function MessageMail({ message }) {
     <Box
       sx={{
         width: "753px",
-        height: "236px",
+        // height: "236px",
+        padding: "20px",
         display: "flex",
         flexDirection: "column",
         gap: "10px",

@@ -1,6 +1,6 @@
 import { Box, Typography } from "@mui/material";
 import MessageMail from "./MessageMail";
-
+import expand from "../assets/expandButton.png";
 function ReadMail() {
   const message = {
     subject: "New Product Launch",
@@ -44,8 +44,25 @@ function ReadMail() {
           <Box>Move DRPDWN</Box>
           <Box>Three Dots</Box>
         </Box>
-        <Typography>TODAY</Typography>
-        <MessageMail message={message} />
+        {false ? (
+          <>
+            <Typography>TODAY</Typography>
+            <MessageMail message={message} />
+            <Box className="flex gap-2">
+              <img src={expand} alt="expand" />
+              <Typography>View all 4 replies</Typography>
+            </Box>
+          </>
+        ) : (
+          <>
+            <Typography>21 Feb</Typography>
+            <MessageMail message={message} />
+            <Typography>Yesterday</Typography>
+            <MessageMail message={message} />
+            <Typography>TODAY</Typography>
+            <MessageMail message={message} />
+          </>
+        )}
       </Box>
     </>
   );
