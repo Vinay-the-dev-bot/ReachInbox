@@ -1,6 +1,8 @@
+import { useSelector } from "react-redux";
 import noMailIllustration from "../assets/noMailIllustration.png";
-import { Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 function NoMail() {
+  const theme = useSelector((state) => state.darkMode);
   return (
     <>
       <Box
@@ -10,9 +12,10 @@ function NoMail() {
           gap: "40px",
           flexDirection: "column",
           alignItems: "center",
+          bgcolor: theme ? "#000000" : "#FFFFFF",
         }}
       >
-        <Image
+        <img
           src={noMailIllustration}
           sx={{
             width: "280.02px",
@@ -24,9 +27,8 @@ function NoMail() {
           sx={{
             width: "533px",
             height: "37px",
-            background: "#FFFFFF",
             gap: "0px",
-            opacity: "0px",
+            color: theme ? "white" : "black",
             fontFamily: "DM Sans",
             fontSize: "24px",
             fontWeight: 700,
@@ -40,6 +42,7 @@ function NoMail() {
           sx={{
             width: "289px",
             textAlign: "center",
+            color: theme ? "white" : "black",
             height: "54px",
           }}
         >
