@@ -1,18 +1,20 @@
 import { Box, Typography } from "@mui/material";
+import { useSelector } from "react-redux";
 
 function MessageMail({ message }) {
+  const theme = useSelector((theme) => theme.darkMode);
   return (
     <Box
       sx={{
         width: "753px",
         // height: "236px",
-        bgcolor: "#141517",
+        bgcolor: theme ? "#141517" : "#FAFAFA",
         padding: "20px",
         borderRadius: "4px",
         display: "flex",
         flexDirection: "column",
         gap: "10px",
-        margin: "auto",
+        margin: "10px auto",
       }}
     >
       {/* background: #E1E0E0; */}
@@ -36,7 +38,7 @@ function MessageMail({ message }) {
             sx={{
               fontSize: "14px",
               fontWeight: 400,
-              color: "#7F7F7F",
+              color: theme ? "#7F7F7F" : "#637381",
               lineHeight: "16.71px",
               textAlign: "left",
             }}
@@ -48,7 +50,7 @@ function MessageMail({ message }) {
           sx={{
             fontSize: "14px",
             fontWeight: 400,
-            color: "#AEAEAE",
+            color: theme ? "#AEAEAE" : "#637381",
             lineHeight: "16.71px",
             textAlign: "left",
           }}
@@ -60,7 +62,7 @@ function MessageMail({ message }) {
           sx={{
             fontSize: "14px",
             fontWeight: 400,
-            color: "#AEAEAE",
+            color: theme ? "#AEAEAE" : "#637381",
             lineHeight: "16.71px",
             textAlign: "left",
           }}
@@ -74,9 +76,9 @@ function MessageMail({ message }) {
         sx={{
           fontSize: "14px",
           fontWeight: 400,
-          color: "#E1E0E0",
           lineHeight: "19.07px",
           textAlign: "left",
+          color: theme ? "#E1E0E0" : "#172B4D",
         }}
       >
         {message.intro}
@@ -86,7 +88,7 @@ function MessageMail({ message }) {
           fontSize: "14px",
           width: "500px",
           fontWeight: 400,
-          color: "#E1E0E0",
+          color: theme ? "#E1E0E0" : "#637381",
           lineHeight: "19.07px",
           textAlign: "left",
         }}

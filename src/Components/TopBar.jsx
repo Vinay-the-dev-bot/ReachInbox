@@ -3,6 +3,7 @@ import lightMode from "../assets/lightMode.png";
 import darkMode from "../assets/darkMode.png";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 
 function TopBar() {
   const theme = useSelector((state) => state.darkMode);
@@ -35,9 +36,9 @@ function TopBar() {
           // backgroundColor: "#343A40",
           // backgroundColor:{theme ? "#343A40" : "#000000"},
           bgcolor: theme ? "#202022" : "#FAFAFA",
-
           display: "flex",
           color: "white",
+          borderBottom: `1px solid ${theme ? "#343a40" : "#D8D8D8"}`,
           padding: "10px 20px",
           justifyContent: "space-between",
           alignItems: "center",
@@ -52,9 +53,16 @@ function TopBar() {
         >
           OneBox
         </Typography>
-
+        {/* background-color: #7e7d7e; background-color: #222428; */}
         <Box className="flex items-center gap-5">
-          <Box id="outerbox1" onClick={handleDarkMode}>
+          <Box
+            id="outerbox1"
+            sx={{
+              bgcolor: theme ? "#222428" : "#E9EAEC",
+              border: `1px solid  ${theme ? "#33383F" : "#e5e7e9"}`,
+            }}
+            onClick={handleDarkMode}
+          >
             <img
               style={{ position: "absolute", top: "7px", left: "30px" }}
               src={lightMode}
@@ -64,13 +72,15 @@ function TopBar() {
               style={{ position: "absolute", top: "7px", left: "10px" }}
               src={darkMode}
               alt="darkMode"
+              e5e7e9
             />
-            <Box id="insidecircle1"></Box>
+            <Box sx={{ bgcolor: "#7E7d7E" }} id="insidecircle1"></Box>
           </Box>
-          <Box>
+          <Box className="flex">
             <Typography sx={{ color: theme ? "#FAFAFA" : "#000000" }}>
               Tim's WorkSpace
             </Typography>
+            <KeyboardArrowDownIcon sx={{ color: theme ? "white" : "black" }} />
           </Box>
         </Box>
       </Box>

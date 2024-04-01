@@ -1,3 +1,4 @@
+import CloseIcon from "@mui/icons-material/Close";
 import { Box, Typography, Button } from "@mui/material";
 import dropDown from "../assets/arrow_drop_down.png";
 import flash_on from "../assets/flash_on.png";
@@ -7,21 +8,54 @@ import imageAttachment from "../assets/imageAttachment.png";
 import emoji from "../assets/emoji.png";
 import person_remove from "../assets/person_remove.png";
 import unfold_more from "../assets/unfold_more.png";
-imageAttachment;
+import { useSelector } from "react-redux";
 function MailEditor({ setReply }) {
+  const mailBody = {
+    toName: "Mitrajit",
+    to: "chandra.rupam@gmail.com",
+    from: "mitrajit2022@gmail.com",
+    fromName: "Mitrajit",
+    subject: "Optimize Your Recruitment Efforts with Expert Support",
+    body: "<p>Hello how are you</p>",
+    references: [
+      "<dea5a0c2-336f-1dc3-4994-191a0ad3891a@gmail.com>",
+      "<CAN5Dvwu24av80BmEg9ZVDWaP2+hTOrBQn9KhjfFkZZX_Do88FA@mail.gmail.com>",
+      "<CAN5DvwuzPAhoBEpQGRUOFqZF5erXc=B98Ew_5zbHF5dmeKWZMQ@mail.gmail.com>",
+      "<a1383d57-fdee-60c0-d46f-6bc440409e84@gmail.com>",
+    ],
+    inReplyTo: "<a1383d57-fdee-60c0-d46f-6bc440409e84@gmail.com>",
+  };
+  const handleReply = async () => {
+    const tok = localStorage.getItem("token");
+    const res = await fetch(
+      "https://hiring.reachinbox.xyz/api/v1/onebox/list",
+      {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${tok}`,
+        },
+        body: JSON.Stringify(mailBody),
+      }
+    );
+    const mails = await res.json();
+  };
+  const theme = useSelector((state) => state.darkMode);
   return (
     <>
       {/* <Box className="flex flex-col">MailEditor</Box> */}
       <Box
         sx={{
           position: "fixed",
-          top: "100px",
+          top: "85px",
+          margin: "auto",
+          left: "350px",
           width: "752px",
+          zIndex: 5,
+
           height: "534px",
           color: "white",
           gap: "0px",
           border: "1px solid black",
-          //   background: "#141517",
           borderImageSource:
             "linear-gradient(180deg, #4A5055 0%, #2A2F32 100%)",
         }}
@@ -43,12 +77,16 @@ opacity: 0px;
             padding: "20px 32px",
             gap: "10px",
             borderRadius: "8px 8px 0px 0px",
-            borderBottom: "1px solid #41464B",
-            background: "#23272C",
+            // borderBottom: "1px solid #41464B",
+            borderBottom: `1px solid ${theme ? "#41464B" : "#E8E8E8"}`,
+            // background: "#23272C",
+            color: theme ? "#FAFAFA" : "black",
+            bgcolor: theme ? "#23272C" : "#ECEFF3",
           }}
         >
           <Typography> Reply</Typography>
-          <Typography onClick={() => setReply(false)}>X</Typography>
+          <CloseIcon onClick={() => setReply(false)} />
+          {/* <Typography onClick={() => setReply(false)}>X</Typography> */}
         </Box>
 
         <Box
@@ -59,8 +97,11 @@ opacity: 0px;
             padding: "20px 32px",
             gap: "10px",
 
-            borderBottom: "1px solid #41464B",
-            background: "#23272C",
+            // borderBottom: "1px solid #41464B",
+            borderBottom: `1px solid ${theme ? "#41464B" : "#E8E8E8"}`,
+
+            color: theme ? "#FAFAFA" : "black",
+            bgcolor: theme ? "#141517" : "#F9F9F9",
           }}
         >
           <Typography>To : </Typography>
@@ -74,8 +115,11 @@ opacity: 0px;
             padding: "20px 32px",
             gap: "10px",
 
-            borderBottom: "1px solid #41464B",
-            background: "#23272C",
+            // borderBottom: "1px solid #41464B",
+            borderBottom: `1px solid ${theme ? "#41464B" : "#E8E8E8"}`,
+
+            color: theme ? "#FAFAFA" : "black",
+            bgcolor: theme ? "#141517" : "#F9F9F9",
           }}
         >
           <Typography>From : </Typography>
@@ -89,8 +133,9 @@ opacity: 0px;
             padding: "20px 32px",
             gap: "10px",
 
-            borderBottom: "1px solid #41464B",
-            background: "#23272C",
+            borderBottom: `1px solid ${theme ? "#41464B" : "#E8E8E8"}`,
+            color: theme ? "#FAFAFA" : "black",
+            bgcolor: theme ? "#141517" : "#F9F9F9",
           }}
         >
           <Typography>Subject : </Typography>
@@ -104,8 +149,10 @@ opacity: 0px;
             padding: "20px 32px",
             gap: "10px",
 
-            borderBottom: "1px solid #41464B",
-            background: "#23272C",
+            borderBottom: `1px solid ${theme ? "#41464B" : "#E8E8E8"}`,
+            // borderBottom: "1px solid #41464B",
+            color: theme ? "#FAFAFA" : "black",
+            bgcolor: theme ? "#141517" : "#F9F9F9",
           }}
         >
           Hi Jeanne,
@@ -118,8 +165,10 @@ opacity: 0px;
             padding: "30px 32px",
             gap: "10px",
             borderRadius: "0px 0px 8px 8px",
-            borderBottom: "1px solid #41464B",
-            background: "#23272C",
+            borderBottom: `1px solid ${theme ? "#41464B" : "#E8E8E8"}`,
+
+            color: theme ? "#FAFAFA" : "black",
+            bgcolor: theme ? "#141517" : "#ECEFF3",
           }}
         >
           <Button
@@ -133,7 +182,7 @@ opacity: 0px;
                 "linear-gradient(91.73deg, #4B63DD -2.99%, rgba(5, 36, 191, 0.99) 95.8%)",
               color: "white",
             }}
-            onClick={() => setReply(false)}
+            onClick={() => handleReply}
             variant="contained"
           >
             <Typography>Send</Typography>

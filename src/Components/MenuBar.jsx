@@ -8,9 +8,10 @@ import menubarsendemail from "../assets/menubarsendemail.png";
 import menubarMENU from "../assets/menubarMENU.png";
 import menubarAllEmail from "../assets/menubarAllEmail.png";
 import menubarBarChart from "../assets/menubarBarChart.png";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 function MenuBar() {
   const theme = useSelector((state) => state.darkMode);
+  const dispatch = useDispatch();
   return (
     <>
       {/* <Box
@@ -40,6 +41,7 @@ function MenuBar() {
           display: "flex",
           position: "fixed",
           flexDirection: "column",
+          borderRight: `1px solid ${theme ? "#343a40" : "#D8D8D8"}`,
           alignItems: "center",
           justifyContent: "space-between",
           height: "100vh",
@@ -47,6 +49,7 @@ function MenuBar() {
         }}
       >
         <img
+          onClick={() => dispatch({ type: "MAILS" })}
           src={theme ? logoM : logoDarkMode}
           alt="logoM"
           width="26px"

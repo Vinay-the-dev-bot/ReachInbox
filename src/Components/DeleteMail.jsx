@@ -1,6 +1,9 @@
 import { Box, Typography, Button } from "@mui/material";
+import { useSelector } from "react-redux";
 
 function DeleteMail({ setDeleteMail }) {
+  const theme = useSelector((state) => state.darkMode);
+
   return (
     <>
       <Box
@@ -11,11 +14,19 @@ function DeleteMail({ setDeleteMail }) {
           padding: "32px 24px",
           gap: "16px",
 
+          zIndex: "10",
+          // position: "relative",
           borderRadius: "8px ",
-          border: "1px solid",
-          background: "linear-gradient(180deg, #141517 0%, #232528 100%)",
-          borderImageSource:
-            "linear-gradient(180deg, #484E53 0%, #2F3338 100%)",
+          border: "1px solid #23272C",
+          color: theme ? "white" : "black",
+          // bgcolor: theme ? "#23272C" : "#ECEFF3",
+          // background: "linear-gradient(180deg, #141517 0%, #232528 100%)",
+          background: "linear-gradient(90deg, #FFFFFF 0%, #E0E0E0 100%)",
+
+          background: `linear-gradient(90deg, ${
+            theme ? "#141517" : "#ffffff"
+          } 0%, ${theme ? "#232528" : "#E0E0E0"}  100%)`,
+
           position: "fixed",
           top: "50%",
           left: "50%",
@@ -29,7 +40,7 @@ function DeleteMail({ setDeleteMail }) {
             fontWeight: 700,
             lineHeight: "32.68px",
             textAlign: "center",
-            color: "#FFFFFF",
+            color: theme ? "white" : "black",
           }}
         >
           Are you sure?
@@ -41,7 +52,8 @@ function DeleteMail({ setDeleteMail }) {
             fontWeight: 400,
             lineHeight: "20.15px",
             textAlign: "left",
-            color: "#E8E8E8",
+
+            color: theme ? "#E8E8E8" : "black",
           }}
         >
           Your selected email will be deleted.
@@ -52,8 +64,8 @@ function DeleteMail({ setDeleteMail }) {
               border: "none",
               width: "119px",
               height: "48px",
-              bgcolor: "yellow",
-              color: "white",
+              bgcolor: theme ? "#25262B" : "#ECEFF3",
+              color: theme ? "white" : "black",
             }}
             variant="outlined"
             onClick={() => setDeleteMail(false)}

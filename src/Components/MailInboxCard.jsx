@@ -10,7 +10,7 @@ function MailInboxCard({ mail }) {
     <>
       <Box
         sx={{
-          borderBottom: "1px solid #203137",
+          borderBottom: `1px solid ${theme ? "#203137" : "transparent"}`,
           paddingY: "15px",
         }}
       >
@@ -52,7 +52,9 @@ function MailInboxCard({ mail }) {
             fontWeight: 400,
             paddingY: "5px",
             textAlign: "left",
-            color: "#E1E0E0",
+            color: theme ? "#E1E0E0" : "#000000",
+
+            // color: "#",
           }}
         >
           {mail.subject}
@@ -67,8 +69,8 @@ function MailInboxCard({ mail }) {
               padding: "3px 8px",
               gap: "3px",
               borderRadius: "17px",
-              background: "#222426",
-              color: "#FFFFFF",
+              bgcolor: theme ? "#222426" : "#F0F0F0",
+              color: theme ? "#FFFFFF" : "#637381",
             }}
           >
             <Box
@@ -93,7 +95,8 @@ function MailInboxCard({ mail }) {
             <Typography
               sx={{
                 textWrap: "nowrap",
-                fontSize: "10px",
+                color: mail.col,
+                fontSize: "9px",
                 paddingY: "8px",
                 fontWeight: 400,
               }}
@@ -109,8 +112,9 @@ function MailInboxCard({ mail }) {
               padding: "3px 8px",
               gap: "3px",
               borderRadius: "17px",
-              background: "#222426",
-              color: "#FFFFFF",
+
+              bgcolor: theme ? "#222426" : "#F0F0F0",
+              color: theme ? "#FFFFFF" : "#637381",
             }}
           >
             <img

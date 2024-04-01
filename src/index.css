@@ -7,7 +7,6 @@ body {
 
 #outerbox1 {
   width: 55px;
-  background-color: rgb(179, 171, 171);
   height: 30px;
   border-radius: 50px;
   position: relative;
@@ -21,6 +20,5 @@ body {
   left: 5px;
   border-radius: 50px;
   position: relative;
-  background-color: white;
   transition: 0.5s;
 }

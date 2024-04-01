@@ -2,7 +2,8 @@ import { Box, Button, Typography } from "@mui/material";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import MessageMail from "./MessageMail";
-import expand from "../assets/expandButton.png";
+// import expand from "../assets/expandButton.png";
+import expand from "../assets/expandButton2.png";
 import replyIcon from "../assets/reply.png";
 import arrow_dropDown from "../assets/arrow_dropDown.png";
 import MailEditor from "./MailEditor";
@@ -51,7 +52,7 @@ function ReadMail() {
       <Box>
         <Box
           sx={{
-            width: "799px",
+            width: "700px",
             height: "70px",
             top: "69px",
             left: "363px",
@@ -62,7 +63,8 @@ function ReadMail() {
             justifyContent: "space-between",
             borderRadius: "7px 7px 0px 0px",
             border: "0px solid transparent",
-            borderBottom: "1px solid #101113",
+            // borderBottom: "1px solid #101113",
+
             bgcolor: theme ? "#000000" : "#FAFAFA",
             color: theme ? "#FAFAFA" : "#000000",
           }}
@@ -84,7 +86,9 @@ function ReadMail() {
             sx={{
               padding: "6px 8px",
               borderRadius: "4px",
-              bgcolor: theme ? "#1f1f1f" : "#000000",
+              border: `1px solid ${!theme ? "#DFE3E8" : "transparent"}`,
+              bgcolor: theme ? "#1f1f1f" : "#FFFFFF",
+              color: theme ? "#FFFFFF" : "#000000",
             }}
           >
             <Box
@@ -93,17 +97,17 @@ function ReadMail() {
                 height: "10px",
                 margin: "3px",
                 borderRadius: "50%",
-                bgcolor: "#444234 ",
+                bgcolor: "#444234",
               }}
             ></Box>
             <Box
               sx={{
                 width: "16px",
+                bgcolor: "#e6d162",
                 height: "16px",
                 opacity: 0.5,
                 position: "absolute",
                 borderRadius: "50%",
-                bgcolor: "#e6d162",
               }}
             ></Box>
             <Typography sx={{ width: "180px" }}>Meeting Completed</Typography>
@@ -112,9 +116,11 @@ function ReadMail() {
           <Box
             className="flex gap-2   items-center"
             sx={{
-              padding: "6px 8px",
+              padding: "6px 12px",
               borderRadius: "4px",
-              bgcolor: theme ? "#1f1f1f" : "#000000",
+              border: `1px solid ${!theme ? "#DFE3E8" : "transparent"}`,
+              bgcolor: theme ? "#1f1f1f" : "#FFFFFF",
+              color: theme ? "#FFFFFF" : "#000000",
             }}
           >
             <Typography>Move</Typography>
@@ -127,38 +133,182 @@ function ReadMail() {
               width: "36px",
               height: "36px",
               borderRadius: "4px",
-              bgcolor: theme ? "#1f1f1f" : "#000000",
+              padding: "6px 12px",
+              border: `1px solid ${!theme ? "#DFE3E8" : "transparent"}`,
+              bgcolor: theme ? "#1f1f1f" : "FFFFFF",
+              color: theme ? "#FFFFFF" : "#000000",
             }}
           >
             <MoreHorizIcon />
           </Box>
           {/* <Box>Three Dots</Box> */}
         </Box>
+        <Box
+          sx={{
+            width: "100%",
+            margin: "auto",
+            position: "relative",
+            height: "1px",
+            borderBottom: `1px solid ${theme ? "#343a40" : "#D8D8D8"}`,
+          }}
+        ></Box>
         {!readAll ? (
-          <>
-            <Typography>TODAY</Typography>
+          <Box
+            sx={{ bgcolor: theme ? "#000000" : "#F4F6F8", paddingX: "20px" }}
+          >
+            <Typography
+              sx={{
+                position: "relative",
+                zIndex: "1",
+                width: "fit-content",
+                bgcolor: theme ? "#171819" : "#EEF1F4",
+                paddingX: "10px",
+                margin: "auto",
+              }}
+            >
+              TODAY
+            </Typography>
+            <Box
+              sx={{
+                width: "100%",
+                height: "1px",
+                margin: "auto",
+                zIndex: "0",
+                position: "relative",
+                top: "-15px",
+                border: `1px solid ${theme ? "#1f1f1f" : "#E1e3e4"}`,
+              }}
+            ></Box>
             <MessageMail message={message} />
-            <Box className="flex gap-2 " onClick={() => setReadAll(true)}>
-              <img src={expand} alt="expand" />
-              <Typography>View all 4 replies</Typography>
+
+            <Box
+              className="flex items-center gap-2 my-4 mx-auto"
+              sx={{
+                padding: "5px 30px",
+                position: "relative",
+                zIndex: "1",
+                width: "fit-content",
+                border: `1px solid ${theme ? "#1f1f1f" : "#E1e3e4"}`,
+                bgcolor: theme ? "#171819" : "#EEF1F4",
+              }}
+              onClick={() => setReadAll(true)}
+            >
+              <img style={{ height: "15px" }} src={expand} alt="expand" />
+              <Typography
+                sx={{
+                  position: "relative",
+                  zIndex: "1",
+                  paddingX: "10px",
+                  margin: "auto",
+                  width: "fit-content",
+                }}
+              >
+                View all 4 replies
+              </Typography>
             </Box>
-          </>
+            <Box
+              sx={{
+                width: "100%",
+                height: "1px",
+                margin: "auto",
+                zIndex: "0",
+                position: "relative",
+                top: "-35px",
+                border: `1px solid ${theme ? "#1f1f1f" : "#E1e3e4"}`,
+              }}
+            ></Box>
+          </Box>
         ) : (
-          <>
-            <Typography>21 Feb</Typography>
+          <Box
+            sx={{ bgcolor: theme ? "#000000" : "#F4F6F8", paddingX: "20px" }}
+          >
+            <Typography
+              sx={{
+                position: "relative",
+                zIndex: "1",
+                width: "fit-content",
+                bgcolor: theme ? "#171819" : "#EEF1F4",
+                paddingX: "10px",
+                margin: "10px auto 0 auto ",
+              }}
+            >
+              21 Feb
+            </Typography>
+            <Box
+              sx={{
+                width: "100%",
+                height: "1px",
+                margin: "auto",
+                zIndex: "0",
+                position: "relative",
+                top: "-15px",
+                border: `1px solid ${theme ? "#1f1f1f" : "#E1e3e4"}`,
+              }}
+            ></Box>
             <MessageMail message={message} />
-            <Typography>Yesterday</Typography>
+            <Typography
+              sx={{
+                position: "relative",
+                zIndex: "1",
+                width: "fit-content",
+                bgcolor: theme ? "#171819" : "#EEF1F4",
+                paddingX: "10px",
+                margin: "auto",
+              }}
+            >
+              Yesterday
+            </Typography>
+            <Box
+              sx={{
+                width: "100%",
+                height: "1px",
+                margin: "auto",
+                zIndex: "0",
+                position: "relative",
+                top: "-15px",
+                border: `1px solid ${theme ? "#1f1f1f" : "#E1e3e4"}`,
+              }}
+            ></Box>
+            {/* <Typography>Yesterday</Typography> */}
             <MessageMail message={message} />
-            <Typography>TODAY</Typography>
+            {/* <Typography>TODAY</Typography> */}
+
+            <Typography
+              sx={{
+                position: "relative",
+                zIndex: "1",
+                width: "fit-content",
+                bgcolor: theme ? "#171819" : "#EEF1F4",
+                paddingX: "10px",
+                margin: "auto",
+              }}
+              onClick={() => setReadAll(false)}
+            >
+              Today
+            </Typography>
+            <Box
+              sx={{
+                width: "100%",
+                height: "1px",
+                margin: "auto",
+                zIndex: "0",
+                position: "relative",
+                top: "-15px",
+                border: `1px solid ${theme ? "#1f1f1f" : "#E1e3e4"}`,
+              }}
+            ></Box>
             <MessageMail message={message} />
-          </>
+          </Box>
         )}
         <Button
           style={{
+            position: "relative",
+            top: "140px",
             background:
               "linear-gradient(91.73deg, #4B63DD -2.99%, rgba(5, 36, 191, 0.99) 95.8%)",
             color: "white",
           }}
+          sx={{ left: "25px" }}
           onClick={() => setReply(true)}
           variant="contained"
         >
