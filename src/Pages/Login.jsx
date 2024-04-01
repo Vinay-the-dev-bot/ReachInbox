@@ -83,7 +83,7 @@ function Login() {
       </Box>
       <Box
         sx={{
-          padding: "200px",
+          padding: "120px",
           bgcolor: theme ? "black" : "white",
         }}
       >
@@ -118,12 +118,14 @@ function Login() {
             }}
           >
             <img src={googleLogo} alt="Google Logo" />
+
             <Link
               onClick={() => {
                 localStorage.setItem("isLoggedIn", true);
                 dispatch({ type: "LOGIN", payload: true });
               }}
-              to="https://hiring.reachinbox.xyz/api/v1/auth/google-login?redirect_to=http://localhost:5174/"
+              // to="https://hiring.reachinbox.xyz/api/v1/auth/google-login?redirect_to=http://localhost:5174/"
+              to="https://hiring.reachinbox.xyz/api/v1/auth/google-login?redirect_to=https://reachinbox-mails.netlify.app"
             >
               Sign Up with Google
             </Link>
