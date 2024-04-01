@@ -2,8 +2,12 @@ import { Box, Button, Typography } from "@mui/material";
 import googleLogo from "../assets/googlelogo.png";
 import reachInboxLogo from "../assets/reachInboxLogo.png";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 
 function Login() {
+  const theme = useSelector((state) => state.darkMode);
+
+  const dispatch = useDispatch();
   return (
     <>
       {/* <Box
@@ -72,14 +76,16 @@ function Login() {
           justifyContent: "center",
           alignItems: "center",
           height: "64px",
-          // backgroundColor: "black",
+          bgcolor: theme ? "black" : "white",
         }}
       >
         <img src={reachInboxLogo} alt={"reachInboxLogo"} height={"24px"} />
       </Box>
       <Box
-        padding={"200px"}
-        // bgcolor={"black"}
+        sx={{
+          padding: "200px",
+          bgcolor: theme ? "black" : "white",
+        }}
       >
         <Box
           sx={{
@@ -112,7 +118,15 @@ function Login() {
             }}
           >
             <img src={googleLogo} alt="Google Logo" />
-            Sign Up with Google
+            <Link
+              onClick={() => {
+                localStorage.setItem("isLoggedIn", true);
+                dispatch({ type: "LOGIN", payload: true });
+              }}
+              to="https://hiring.reachinbox.xyz/api/v1/auth/google-login?redirect_to=http://localhost:5174/"
+            >
+              Sign Up with Google
+            </Link>
           </Box>
           {/* <Button variant="contained">Create an Account</Button> */}
           <Button
@@ -136,8 +150,7 @@ function Login() {
       </Box>
       <Typography
         sx={{
-          // bgcolor: "#121212",
-          color: "#5C5F66",
+          bgcolor: theme ? "#5C5F66" : "white",
           textAlign: "center",
           height: "32px",
         }}
