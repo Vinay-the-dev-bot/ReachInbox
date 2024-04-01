@@ -36,7 +36,7 @@ function NoMail() {
             height: "37px",
             gap: "0px",
             color: theme ? "white" : "black",
-            fontFamily: "DM Sans",
+            // fontFamily: "DM Sans",
             fontSize: "24px",
             fontWeight: 700,
             lineHeight: "36.53px",
