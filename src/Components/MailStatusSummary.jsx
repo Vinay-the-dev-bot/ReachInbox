@@ -14,8 +14,6 @@ function MailStatusSummary({ step, index }) {
         <Box
           className="flex items-center justify-center rounded-full w-8 h-8  "
           sx={{
-            // border: `1px solid ${theme ? "#23272c" : "#E9EBEE"}`,
-
             bgcolor: theme ? "#23272c" : "#EEF1F4",
           }}
         >

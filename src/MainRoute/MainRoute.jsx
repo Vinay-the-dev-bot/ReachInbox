@@ -7,7 +7,7 @@ function MainRoute() {
     <>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/google-login" element={<Login />} />
       </Routes>
     </>
   );

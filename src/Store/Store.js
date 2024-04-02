@@ -3,13 +3,12 @@ import { createStore } from "redux";
 const initialState = {
   isLoggedIn: false,
   darkMode: true,
-  mails: false,
+  mails: [],
 };
-
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case "MAILS":
-      return { ...state, mails: !state.mails };
+      return { ...state, mails: [...state.mails, ...action.payload] };
     case "LOGIN":
       console.log(action);
       return { ...state, isLoggedIn: action.payload };

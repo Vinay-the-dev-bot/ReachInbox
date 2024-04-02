@@ -23,10 +23,9 @@ function MailSummary() {
           borderLeft: `1px solid ${theme ? "#343a40" : "#D8D8D8"}`,
         }}
       ></Box>
-      {/* border: `1px solid ${theme ? "#1f1f1f" : "#E1e3e4"}`, */}
       <Box
         sx={{
-          marginLeft: "5px",
+          marginX: "5px",
         }}
         className="flex  flex-col w-56"
       >
@@ -276,9 +275,7 @@ function MailSummary() {
             <Box
               style={{ zIndex: 0 }}
               sx={{
-                // border: "1px solid #23272c",
                 border: `1px solid ${theme ? "#23272c" : "#E9EBEE"}`,
-                // state
                 height: "520px",
                 left: "35px",
                 top: "20px",

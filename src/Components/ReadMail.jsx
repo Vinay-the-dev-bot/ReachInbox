@@ -2,10 +2,8 @@ import { Box, Button, Typography } from "@mui/material";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import MessageMail from "./MessageMail";
-// import expand from "../assets/expandButton.png";
 import expand from "../assets/expandButton2.png";
 import replyIcon from "../assets/reply.png";
-import arrow_dropDown from "../assets/arrow_dropDown.png";
 import MailEditor from "./MailEditor";
 import { useState } from "react";
 import DeleteMail from "./DeleteMail";
@@ -20,22 +18,12 @@ function ReadMail() {
     subject: "New Product Launch",
     time: "20 june 2022 : 9:16AM",
     to: "to : lennon.j@mail.com",
-    // from : jeanne@icloud.com cc : lennon.j@mail.com
     from: "from : jeanne@icloud.com cc : lennon.j@mail.com",
     cc: "to : lennon.j@mail.com",
     intro: "Hi {FIRST_NAME} ",
     message:
       "I would like to introduce you to SaaSgrow, a productized design service specifically tailored for saas startups. Our aim is to help you enhance the user experience and boost the visual appeal of your software products.",
   };
-  // function handleKeyDown(event) {
-  //   if (event.key === "r") {
-  //     setReply(!reply);
-  //     console.log("r key pressed");
-  //   } else if (event.key === "d") {
-  //     console.log("d key pressed");
-  //   }
-  // }
-
   function handleKeyDown(event) {
     if (event.key === "r") {
       setReply(!reply);
@@ -52,7 +40,8 @@ function ReadMail() {
       <Box>
         <Box
           sx={{
-            width: "700px",
+            width: "753px",
+            margin: "auto",
             height: "70px",
             top: "69px",
             left: "363px",
@@ -63,8 +52,6 @@ function ReadMail() {
             justifyContent: "space-between",
             borderRadius: "7px 7px 0px 0px",
             border: "0px solid transparent",
-            // borderBottom: "1px solid #101113",
-
             bgcolor: theme ? "#000000" : "#FAFAFA",
             color: theme ? "#FAFAFA" : "#000000",
           }}
@@ -126,7 +113,6 @@ function ReadMail() {
             <Typography>Move</Typography>
             <KeyboardArrowDownIcon />
           </Box>
-          {/* <KeyboardArrowDownIcon /> */}
           <Box
             className="flex justify-center items-center"
             sx={{
@@ -141,7 +127,6 @@ function ReadMail() {
           >
             <MoreHorizIcon />
           </Box>
-          {/* <Box>Three Dots</Box> */}
         </Box>
         <Box
           sx={{
@@ -269,10 +254,7 @@ function ReadMail() {
                 border: `1px solid ${theme ? "#1f1f1f" : "#E1e3e4"}`,
               }}
             ></Box>
-            {/* <Typography>Yesterday</Typography> */}
             <MessageMail message={message} />
-            {/* <Typography>TODAY</Typography> */}
-
             <Typography
               sx={{
                 position: "relative",
@@ -315,8 +297,6 @@ function ReadMail() {
           <img src={replyIcon} alt="replyIcon" />
           Reply
         </Button>
-        {/* <Button onClick={() => setDeleteMail(true)}>DELETE</Button> */}
-
         {reply && <MailEditor setReply={setReply} />}
         {deletemail && <DeleteMail setDeleteMail={setDeleteMail} />}
       </Box>

@@ -3,7 +3,19 @@ import { useSelector } from "react-redux";
 
 function DeleteMail({ setDeleteMail }) {
   const theme = useSelector((state) => state.darkMode);
-
+  const handleDelete = async () => {
+    const tok = localStorage.getItem("token");
+    const res = await fetch(
+      "https://hiring.reachinbox.xyz/api/v1/onebox/messages/3",
+      {
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${tok}`,
+        },
+      }
+    );
+    const mailDeleted = await res.json();
+  };
   return (
     <>
       <Box
@@ -15,13 +27,9 @@ function DeleteMail({ setDeleteMail }) {
           gap: "16px",
 
           zIndex: "10",
-          // position: "relative",
           borderRadius: "8px ",
           border: "1px solid #23272C",
           color: theme ? "white" : "black",
-          // bgcolor: theme ? "#23272C" : "#ECEFF3",
-          // background: "linear-gradient(180deg, #141517 0%, #232528 100%)",
-          background: "linear-gradient(90deg, #FFFFFF 0%, #E0E0E0 100%)",
 
           background: `linear-gradient(90deg, ${
             theme ? "#141517" : "#ffffff"
@@ -73,7 +81,6 @@ function DeleteMail({ setDeleteMail }) {
             Cancel
           </Button>
           <Button
-            //   background: linear-gradient(91.73deg, #FA5252 -2.99%, #A91919 95.8%);
             sx={{
               border: "none",
               width: "152px",
@@ -83,6 +90,7 @@ function DeleteMail({ setDeleteMail }) {
                 "linear-gradient(91.73deg, #FA5252 -2.99%, #A91919 95.8%)",
               color: "white",
             }}
+            onClick={handleDelete}
             variant="contained"
           >
             Delete

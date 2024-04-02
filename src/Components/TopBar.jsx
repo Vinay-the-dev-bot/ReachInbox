@@ -7,9 +7,7 @@ import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 
 function TopBar() {
   const theme = useSelector((state) => state.darkMode);
-
   const dispatch = useDispatch();
-  const state = useSelector((state) => state);
   useEffect(() => {
     const slider =
       document.getElementById("outerbox1") ||
@@ -18,10 +16,8 @@ function TopBar() {
       const circle = document.getElementById("insidecircle1");
       if (getComputedStyle(circle).left == "5px") {
         circle.style.left = "50%";
-        // slider.style.backgroundColor = "#1877F2";
       } else {
         circle.style.left = "5px";
-        // slider.style.backgroundColor = "rgb(179, 171, 171)";
       }
     });
   }, []);
@@ -32,9 +28,6 @@ function TopBar() {
     <>
       <Box
         sx={{
-          // backgroundColor: "#343A40",
-          // backgroundColor: "#343A40",
-          // backgroundColor:{theme ? "#343A40" : "#000000"},
           bgcolor: theme ? "#202022" : "#FAFAFA",
           display: "flex",
           color: "white",
@@ -53,7 +46,6 @@ function TopBar() {
         >
           OneBox
         </Typography>
-        {/* background-color: #7e7d7e; background-color: #222428; */}
         <Box className="flex items-center gap-5">
           <Box
             id="outerbox1"

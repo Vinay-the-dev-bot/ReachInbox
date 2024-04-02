@@ -49,7 +49,7 @@ function MenuBar() {
         }}
       >
         <img
-          onClick={() => dispatch({ type: "MAILS" })}
+          onClick={() => dispatch({ type: "MAILS", payload: [] })}
           src={theme ? logoM : logoDarkMode}
           alt="logoM"
           width="26px"

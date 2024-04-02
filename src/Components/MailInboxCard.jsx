@@ -3,9 +3,50 @@ import menubarsendemail from "../assets/menubarsendemail.png";
 import { useSelector } from "react-redux";
 function MailInboxCard({ mail }) {
   const theme = useSelector((state) => state.darkMode);
+  const timestamp = "2022-02-02T05:14:00.000Z";
+  const date = new Date(mail.sentAt);
+  const today = new Date();
+  function getRandom1Or2() {
+    return Math.floor(Math.random() * 3) + 1;
+  }
 
-  // bgcolor: theme ? "#202022" : "#FAFAFA",
-  // color: theme ? "#FAFAFA" : "#000000",
+  const randomNumber = getRandom1Or2();
+
+  const stat = [
+    {
+      status: "Meeting Booked",
+      col: "#9c62e6",
+      secCol: "#352f3c",
+    },
+    { status: "Interested", col: "#57E0A6", secCol: "#2D3833" },
+    {
+      status: "Meeting Completed",
+      col: "#E6D162",
+      secCol: "#444234",
+    },
+  ];
+  if (!mail.status) {
+    mail.status = stat[randomNumber - 1].status;
+    mail.col = stat[randomNumber - 1].col;
+    mail.secCol = stat[randomNumber - 1].secCol;
+  }
+  const day = date.getDate();
+  const month = date.getMonth() + 1;
+  const months = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+
   return (
     <>
       <Box
@@ -39,11 +80,10 @@ function MailInboxCard({ mail }) {
               fontSize: "14px",
               fontWeight: 400,
               textAlign: "left",
-              // color: "#585858",
               color: theme ? "#FAFAFA" : "#000000",
             }}
           >
-            {mail.sentAt}
+            {`${day} ${months[month]}`}
           </Typography>
         </Box>
         <Typography
@@ -53,8 +93,6 @@ function MailInboxCard({ mail }) {
             paddingY: "5px",
             textAlign: "left",
             color: theme ? "#E1E0E0" : "#000000",
-
-            // color: "#",
           }}
         >
           {mail.subject}

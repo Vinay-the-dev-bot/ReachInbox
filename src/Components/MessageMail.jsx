@@ -7,7 +7,6 @@ function MessageMail({ message }) {
     <Box
       sx={{
         width: "753px",
-        // height: "236px",
         bgcolor: theme ? "#141517" : "#FAFAFA",
         padding: "20px",
         borderRadius: "4px",
@@ -17,8 +16,6 @@ function MessageMail({ message }) {
         margin: "10px auto",
       }}
     >
-      {/* background: #E1E0E0; */}
-      {/* <p>{JSON.stringify(message)}</p> */}
       <Box
         sx={{
           display: "flex",
@@ -70,8 +67,6 @@ function MessageMail({ message }) {
           {message.to}
         </Typography>
       </Box>
-      {/* font-family: Open Sans; font-size: 14px; font-weight: 400; line-height:
-      19.07px; letter-spacing: -0.02em; text-align: left; */}
       <Typography
         sx={{
           fontSize: "14px",

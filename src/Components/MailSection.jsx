@@ -15,8 +15,7 @@ function MailSection() {
         <Box
           sx={{
             display: "flex",
-            // gap: "20px",
-            height: "1100px",
+            minHeight: "1100px",
             bgcolor: theme ? "#000000" : "#FAFAFA",
             color: theme ? "#FAFAFA" : "#000000",
           }}

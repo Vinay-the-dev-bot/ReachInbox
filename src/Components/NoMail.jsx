@@ -1,13 +1,9 @@
 import { useSelector } from "react-redux";
 import noMailIllustration from "../assets/noMailIllustration.png";
 import { Box, Typography } from "@mui/material";
-import { useEffect } from "react";
 import { useNavigate } from "react-router";
 function NoMail() {
-  const navigate = useNavigate();
   const theme = useSelector((state) => state.darkMode);
-
-  const isLoggedIn = useSelector((state) => state.isLoggedIn);
 
   return (
     <>
@@ -26,7 +22,6 @@ function NoMail() {
           src={noMailIllustration}
           sx={{
             width: "280.02px",
-            // height: "229.4px",
           }}
           alt={"noMailIllustration"}
         />
@@ -36,7 +31,6 @@ function NoMail() {
             height: "37px",
             gap: "0px",
             color: theme ? "white" : "black",
-            // fontFamily: "DM Sans",
             fontSize: "24px",
             fontWeight: 700,
             lineHeight: "36.53px",

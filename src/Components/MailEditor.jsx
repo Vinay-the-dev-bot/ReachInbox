@@ -28,21 +28,20 @@ function MailEditor({ setReply }) {
   const handleReply = async () => {
     const tok = localStorage.getItem("token");
     const res = await fetch(
-      "https://hiring.reachinbox.xyz/api/v1/onebox/list",
+      "https://hiring.reachinbox.xyz/api/v1/onebox/reply/3",
       {
         method: "POST",
         headers: {
           Authorization: `Bearer ${tok}`,
         },
-        body: JSON.Stringify(mailBody),
+        body: JSON.stringify(mailBody),
       }
     );
-    const mails = await res.json();
+    const mailSent = await res.json();
   };
   const theme = useSelector((state) => state.darkMode);
   return (
     <>
-      {/* <Box className="flex flex-col">MailEditor</Box> */}
       <Box
         sx={{
           position: "fixed",
@@ -60,15 +59,6 @@ function MailEditor({ setReply }) {
             "linear-gradient(180deg, #4A5055 0%, #2A2F32 100%)",
         }}
       >
-        {/* <Box sx={ {width: Fixed (752px)px;
-height: Fixed (38px)px;
-padding: 20px 32px 20px 32px;
-gap: 10px;
-border-radius: 8px 8px 0px 0px;
-border: 1px 0px 0px 0px;
-opacity: 0px;
- background: #23272C;
- border: 1px solid #41464B}}  >Reply</Box> */}
         <Box
           className="flex justify-between items-center"
           sx={{
@@ -77,16 +67,13 @@ opacity: 0px;
             padding: "20px 32px",
             gap: "10px",
             borderRadius: "8px 8px 0px 0px",
-            // borderBottom: "1px solid #41464B",
             borderBottom: `1px solid ${theme ? "#41464B" : "#E8E8E8"}`,
-            // background: "#23272C",
             color: theme ? "#FAFAFA" : "black",
             bgcolor: theme ? "#23272C" : "#ECEFF3",
           }}
         >
           <Typography> Reply</Typography>
           <CloseIcon onClick={() => setReply(false)} />
-          {/* <Typography onClick={() => setReply(false)}>X</Typography> */}
         </Box>
 
         <Box
@@ -96,10 +83,7 @@ opacity: 0px;
             height: "38px",
             padding: "20px 32px",
             gap: "10px",
-
-            // borderBottom: "1px solid #41464B",
             borderBottom: `1px solid ${theme ? "#41464B" : "#E8E8E8"}`,
-
             color: theme ? "#FAFAFA" : "black",
             bgcolor: theme ? "#141517" : "#F9F9F9",
           }}
@@ -114,10 +98,7 @@ opacity: 0px;
             height: "38px",
             padding: "20px 32px",
             gap: "10px",
-
-            // borderBottom: "1px solid #41464B",
             borderBottom: `1px solid ${theme ? "#41464B" : "#E8E8E8"}`,
-
             color: theme ? "#FAFAFA" : "black",
             bgcolor: theme ? "#141517" : "#F9F9F9",
           }}
@@ -148,9 +129,7 @@ opacity: 0px;
             height: "325px",
             padding: "20px 32px",
             gap: "10px",
-
             borderBottom: `1px solid ${theme ? "#41464B" : "#E8E8E8"}`,
-            // borderBottom: "1px solid #41464B",
             color: theme ? "#FAFAFA" : "black",
             bgcolor: theme ? "#141517" : "#F9F9F9",
           }}
@@ -182,7 +161,7 @@ opacity: 0px;
                 "linear-gradient(91.73deg, #4B63DD -2.99%, rgba(5, 36, 191, 0.99) 95.8%)",
               color: "white",
             }}
-            onClick={() => handleReply}
+            onClick={handleReply}
             variant="contained"
           >
             <Typography>Send</Typography>
